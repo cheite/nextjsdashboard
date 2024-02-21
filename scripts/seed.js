@@ -1,6 +1,5 @@
 const { db } = require('@vercel/postgres');
-//const { Pool } = require('pg');
-//require('dotenv').config();
+
 const {
   invoices,
   customers,
@@ -164,14 +163,6 @@ async function seedRevenue(client) {
 
 async function main() {
   const client = await db.connect();
-
-  //const client = new Pool({
-  //  user: process.env.POSTGRES_USER,
-  //  host: process.env.POSTGRES_HOST,
-  //  database: process.env.POSTGRES_DATABASE,
-  //  password: process.env.POSTGRES_PASSWORD,
-  //  port: process.env.POSTGRES_PORT,
-  //})
 
   await seedUsers(client);
   await seedCustomers(client);
